@@ -16,12 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/',[HomePageController::class,'index'])->name('homePage')->middleware('auth');
+Route::get('/',[HomePageController::class,'index'])->name('homePage');
 Route::get('/snapAd',[HomePageController::class,'snapAd'])->name('snapAd')->middleware('auth');
+Route::get('/dashboard',[HomePageController::class,'dashboard'])->name('dashboard')->middleware('auth','verified');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

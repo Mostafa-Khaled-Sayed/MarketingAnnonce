@@ -23,6 +23,15 @@ class HomePageController extends Controller
     }
 
 
+    /**
+     * Display a listing of the resource.
+     */
+    public function dashboard()
+    {
+        return view('home.dashboard');
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
